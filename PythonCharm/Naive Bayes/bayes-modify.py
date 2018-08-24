@@ -145,7 +145,7 @@ Modify:
     2017-08-14
 """
 def textParse(bigString):                                                   #将字符串转换为字符列表
-    listOfTokens = re.split(r'\W*', bigString)                              #将特殊符号作为切分标志进行字符串切分，即非字母、非数字
+    listOfTokens = re.split(r'\W+', bigString)                              #将特殊符号作为切分标志进行字符串切分，即非字母、非数字
     return [tok.lower() for tok in listOfTokens if len(tok) > 2]            #除了单个字母，例如大写的I，其它单词变成小写
 
 """
@@ -184,6 +184,9 @@ def spamTest():
         trainMat.append(setOfWords2Vec(vocabList, docList[docIndex]))       #将生成的词集模型添加到训练矩阵中
         trainClasses.append(classList[docIndex])                            #将类别添加到训练集类别标签系向量中
     p0V, p1V, pSpam = trainNB0(np.array(trainMat), np.array(trainClasses))  #训练朴素贝叶斯模型
+    print(p0V)
+    print(p1V)
+    print(pSpam)
     errorCount = 0                                                          #错误分类计数
     for docIndex in testSet:                                                #遍历测试集
         wordVector = setOfWords2Vec(vocabList, docList[docIndex])           #测试集的词集模型
