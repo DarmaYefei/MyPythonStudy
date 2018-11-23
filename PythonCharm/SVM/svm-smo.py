@@ -286,6 +286,6 @@ def calcWs(alphas,dataArr,classLabels):
 
 if __name__ == '__main__':
 	dataArr, classLabels = loadDataSet('testSet.txt')
-	b, alphas = smoP(dataArr, classLabels, 0.6, 0.001, 40)
+	b, alphas = smoP(dataArr, classLabels, 0.01, 0.0000000000001, 500)
 	w = calcWs(alphas,dataArr, classLabels)
 	showClassifer(dataArr, classLabels, w, b)
