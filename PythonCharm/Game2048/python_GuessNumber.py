@@ -19,7 +19,7 @@ if __name__ == "__main__":
 
     def hit_me():
         global sysNumber
-        sysNumber = rd.randrange(1, 1000)
+        sysNumber = rd.randrange(1, 1001)
         var.set('你已点击生成数字：请猜猜为？')
 
     # 按钮生成
@@ -52,4 +52,17 @@ if __name__ == "__main__":
                       textvariable=var1,  # 使用 textvariable 替换 text, 因为这个是可以变化的
                       bg='DarkOrchid1', width=30, height=2)
     label3.pack()
+
+    var2 = tk.StringVar()  # 文字变量储存器
+    var2.set('')
+    def hit_me2():
+        randNumber = rd.randrange(1, 101)
+        var2.set('你投掷的骰子点数是 %d' % randNumber)
+    label4 = tk.Label(root,
+                      textvariable=var2,  # 使用 textvariable 替换 text, 因为这个是可以变化的
+                      bg='SpringGreen2', width=30, height=2)
+    label4.pack()
+    button3 = tk.Button(root, text='掷个骰子', command=hit_me2)  # 生成button1
+    button3.pack()  # 将button1添加到root主窗口
+
     root.mainloop()

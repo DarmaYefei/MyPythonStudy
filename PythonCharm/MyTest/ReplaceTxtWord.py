@@ -1,3 +1,4 @@
+# _*_ encoding=UTF-8 _*_
 import re
 import os
 import xlrd
@@ -29,11 +30,11 @@ def replaceDToFBXls():
         f2 = open('FIBERMEDICAL.txt', 'w')
         f2.truncate()
 
-    ExcelFile = xlrd.open_workbook('DictTest.xlsx')
+    ExcelFile = xlrd.open_workbook('DataUnit.xlsx')
     sheet = ExcelFile.sheet_by_name('Sheet1')
     rowNum = sheet.nrows
 
-    f = open("DARMA.txt", "r")
+    f = open("Untitled.txt", "r")
     strinfo = re.compile('DARMA')
     line = 'line'
     while line:
@@ -106,10 +107,10 @@ def plotTest():
     plt.show()
 
 if __name__ == '__main__':
-    #replaceDToFBXls()
-    #statisticAFPrecise('ResultWH.xls')
+    replaceDToFBXls()
+    # statisticAFPrecise('ResultWH.xls')
     # statisticAFPrecise('StatisticResult20181113150304.xls')
-    plotTest()
+    # plotTest()
 
 
 
